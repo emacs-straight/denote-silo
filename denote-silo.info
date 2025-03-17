@@ -1,4 +1,4 @@
-This is docNnA1kX.info, produced by makeinfo version 6.8 from
+This is docMbkhTL.info, produced by makeinfo version 6.8 from
 denote-silo.texi.
 
 Copyright (C) 2022-2025 Free Software Foundation, Inc.
@@ -20,7 +20,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docNnA1kX.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: docMbkhTL.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 denote-silo: Convenience functions to work with multiple Denote silos
 *********************************************************************
@@ -88,7 +88,7 @@ Indices
 
 
 
-File: docNnA1kX.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: docMbkhTL.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -112,7 +112,7 @@ across their configuration.
 * Make Org export work with silos::
 
 
-File: docNnA1kX.info,  Node: Create new notes in silos,  Next: Switch to a silo directory,  Up: Overview
+File: docMbkhTL.info,  Node: Create new notes in silos,  Next: Switch to a silo directory,  Up: Overview
 
 1.1 Create new notes in silos
 =============================
@@ -134,7 +134,7 @@ note-creation command to call from inside that silo (read about the
 “Points of entry” in the Denote manual).
 
 
-File: docNnA1kX.info,  Node: Switch to a silo directory,  Next: Make Org export work with silos,  Prev: Create new notes in silos,  Up: Overview
+File: docMbkhTL.info,  Node: Switch to a silo directory,  Next: Make Org export work with silos,  Prev: Create new notes in silos,  Up: Overview
 
 1.2 Switch to a silo directory
 ==============================
@@ -151,7 +151,7 @@ shell or search command will consider as the current directory, without
 necessarily changing context completely.
 
 
-File: docNnA1kX.info,  Node: Make Org export work with silos,  Prev: Switch to a silo directory,  Up: Overview
+File: docMbkhTL.info,  Node: Make Org export work with silos,  Prev: Switch to a silo directory,  Up: Overview
 
 1.3 Make Org export work with silos
 ===================================
@@ -205,7 +205,7 @@ ways to go about it, anyway:
      of the current file.  ]
 
 
-File: docNnA1kX.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
+File: docMbkhTL.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -216,7 +216,7 @@ File: docNnA1kX.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: docNnA1kX.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: docMbkhTL.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -235,7 +235,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: docNnA1kX.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: docMbkhTL.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -262,7 +262,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: docNnA1kX.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: docMbkhTL.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -274,10 +274,17 @@ File: docNnA1kX.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
                    denote-silo-open-or-create
                    denote-silo-select-silo-then-command
                    denote-silo-dired
-                   denote-silo-cd ))
+                   denote-silo-cd )
+       :config
+       ;; Add your silos to this list.  By default, it only includes the
+       ;; value of the variable `denote-directory'.
+       (setq denote-silo-directories
+             (list denote-directory
+                   "~/Documents/personal/"
+                   "~/Documents/work/")))
 
 
-File: docNnA1kX.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: docMbkhTL.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -289,7 +296,7 @@ Author/maintainer
      Protesilaos Stavrou.
 
 
-File: docNnA1kX.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: docMbkhTL.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -771,7 +778,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docNnA1kX.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: docMbkhTL.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -783,7 +790,7 @@ B Indices
 * Concept index::
 
 
-File: docNnA1kX.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: docMbkhTL.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -803,7 +810,7 @@ B.1 Function index
                                                                (line 16)
 
 
-File: docNnA1kX.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: docMbkhTL.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -815,7 +822,7 @@ B.2 Variable index
                                                                 (line 6)
 
 
-File: docNnA1kX.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docMbkhTL.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
@@ -839,12 +846,12 @@ Node: Installation7923
 Node: GNU ELPA package8110
 Node: Manual installation8676
 Node: Sample configuration9465
-Node: Acknowledgements9950
-Node: GNU Free Documentation License10238
-Node: Indices35599
-Node: Function index35775
-Node: Variable index36627
-Node: Concept index36935
+Node: Acknowledgements10247
+Node: GNU Free Documentation License10535
+Node: Indices35896
+Node: Function index36072
+Node: Variable index36924
+Node: Concept index37232
 
 End Tag Table
 

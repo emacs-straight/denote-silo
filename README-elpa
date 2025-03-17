@@ -239,7 +239,14 @@ Table of Contents
   │ 	      denote-silo-open-or-create
   │ 	      denote-silo-select-silo-then-command
   │ 	      denote-silo-dired
-  │ 	      denote-silo-cd ))
+  │ 	      denote-silo-cd )
+  │   :config
+  │   ;; Add your silos to this list.  By default, it only includes the
+  │   ;; value of the variable `denote-directory'.
+  │   (setq denote-silo-directories
+  │ 	(list denote-directory
+  │ 	      "~/Documents/personal/"
+  │ 	      "~/Documents/work/")))
   └────
 
 
