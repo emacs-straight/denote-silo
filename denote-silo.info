@@ -1,4 +1,4 @@
-This is docfWgXeI.info, produced by makeinfo version 6.8 from
+This is docRHscsK.info, produced by makeinfo version 6.8 from
 denote-silo.texi.
 
 Copyright (C) 2022-2025 Free Software Foundation, Inc.
@@ -20,7 +20,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: docfWgXeI.info,  Node: Top,  Next: Overview,  Up: (dir)
+File: docRHscsK.info,  Node: Top,  Next: Overview,  Up: (dir)
 
 denote-silo: Convenience functions to work with multiple Denote silos
 *********************************************************************
@@ -44,12 +44,13 @@ customization options for the Emacs package called ‘denote-silo’ (or
 pertinent to it.
 
    The documentation furnished herein corresponds to stable version
-0.0.0, released on N/A.  Any reference to a newer feature which does not
-yet form part of the latest tagged commit, is explicitly marked as such.
+0.1.0, released on 2025-04-15.  Any reference to a newer feature which
+does not yet form part of the latest tagged commit, is explicitly marked
+as such.
 
-   Current development target is 0.1.0-dev.
+   Current development target is 0.2.0-dev.
 
-   • Package name (GNU ELPA): ‘denote-silo’ (⚠️ Not available yet)
+   • Package name (GNU ELPA): ‘denote-silo’
    • Official manual: <https://protesilaos.com/emacs/denote-silo>
    • Git repository: <https://github.com/protesilaos/denote-silo>
    • Backronym: Denote... Silos Insulate Localised Objects.
@@ -88,7 +89,7 @@ Indices
 
 
 
-File: docfWgXeI.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
+File: docRHscsK.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -112,7 +113,7 @@ across their configuration.
 * Make Org export work with silos::
 
 
-File: docfWgXeI.info,  Node: Create new notes in silos,  Next: Switch to a silo directory,  Up: Overview
+File: docRHscsK.info,  Node: Create new notes in silos,  Next: Switch to a silo directory,  Up: Overview
 
 1.1 Create new notes in silos
 =============================
@@ -134,7 +135,7 @@ note-creation command to call from inside that silo (read about the
 “Points of entry” in the Denote manual).
 
 
-File: docfWgXeI.info,  Node: Switch to a silo directory,  Next: Make Org export work with silos,  Prev: Create new notes in silos,  Up: Overview
+File: docRHscsK.info,  Node: Switch to a silo directory,  Next: Make Org export work with silos,  Prev: Create new notes in silos,  Up: Overview
 
 1.2 Switch to a silo directory
 ==============================
@@ -151,7 +152,7 @@ shell or search command will consider as the current directory, without
 necessarily changing context completely.
 
 
-File: docfWgXeI.info,  Node: Make Org export work with silos,  Prev: Switch to a silo directory,  Up: Overview
+File: docRHscsK.info,  Node: Make Org export work with silos,  Prev: Switch to a silo directory,  Up: Overview
 
 1.3 Make Org export work with silos
 ===================================
@@ -205,7 +206,7 @@ ways to go about it, anyway:
      of the current file.  ]
 
 
-File: docfWgXeI.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
+File: docRHscsK.info,  Node: Installation,  Next: Sample configuration,  Prev: Overview,  Up: Top
 
 2 Installation
 **************
@@ -216,7 +217,7 @@ File: docfWgXeI.info,  Node: Installation,  Next: Sample configuration,  Prev: O
 * Manual installation::
 
 
-File: docfWgXeI.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
+File: docRHscsK.info,  Node: GNU ELPA package,  Next: Manual installation,  Up: Installation
 
 2.1 GNU ELPA package
 ====================
@@ -235,7 +236,7 @@ archive.  Read:
 <https://protesilaos.com/codelog/2022-05-13-emacs-elpa-devel/>.
 
 
-File: docfWgXeI.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
+File: docRHscsK.info,  Node: Manual installation,  Prev: GNU ELPA package,  Up: Installation
 
 2.2 Manual installation
 =======================
@@ -262,7 +263,7 @@ following commands in a shell prompt:
    Everything is in place to set up the package.
 
 
-File: docfWgXeI.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
+File: docRHscsK.info,  Node: Sample configuration,  Next: Acknowledgements,  Prev: Installation,  Up: Top
 
 3 Sample configuration
 **********************
@@ -284,7 +285,7 @@ File: docfWgXeI.info,  Node: Sample configuration,  Next: Acknowledgements,  Pre
                    "~/Documents/work/")))
 
 
-File: docfWgXeI.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
+File: docRHscsK.info,  Node: Acknowledgements,  Next: GNU Free Documentation License,  Prev: Sample configuration,  Up: Top
 
 4 Acknowledgements
 ******************
@@ -296,7 +297,7 @@ Author/maintainer
      Protesilaos Stavrou.
 
 
-File: docfWgXeI.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
+File: docRHscsK.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Acknowledgements,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -778,7 +779,7 @@ software license, such as the GNU General Public License, to permit
 their use in free software.
 
 
-File: docfWgXeI.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+File: docRHscsK.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
 
 B Indices
 *********
@@ -790,7 +791,7 @@ B Indices
 * Concept index::
 
 
-File: docfWgXeI.info,  Node: Function index,  Next: Variable index,  Up: Indices
+File: docRHscsK.info,  Node: Function index,  Next: Variable index,  Up: Indices
 
 B.1 Function index
 ==================
@@ -810,7 +811,7 @@ B.1 Function index
                                                                (line 16)
 
 
-File: docfWgXeI.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+File: docRHscsK.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
 
 B.2 Variable index
 ==================
@@ -822,7 +823,7 @@ B.2 Variable index
                                                                 (line 6)
 
 
-File: docfWgXeI.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docRHscsK.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 B.3 Concept index
 =================
@@ -838,20 +839,20 @@ B.3 Concept index
 
 Tag Table:
 Node: Top875
-Node: Overview3020
-Node: Create new notes in silos3899
-Node: Switch to a silo directory4873
-Node: Make Org export work with silos5658
-Node: Installation7923
-Node: GNU ELPA package8110
-Node: Manual installation8676
-Node: Sample configuration9465
-Node: Acknowledgements10247
-Node: GNU Free Documentation License10535
-Node: Indices35896
-Node: Function index36072
-Node: Variable index36924
-Node: Concept index37232
+Node: Overview3000
+Node: Create new notes in silos3879
+Node: Switch to a silo directory4853
+Node: Make Org export work with silos5638
+Node: Installation7903
+Node: GNU ELPA package8090
+Node: Manual installation8656
+Node: Sample configuration9445
+Node: Acknowledgements10227
+Node: GNU Free Documentation License10515
+Node: Indices35876
+Node: Function index36052
+Node: Variable index36904
+Node: Concept index37212
 
 End Tag Table
 
