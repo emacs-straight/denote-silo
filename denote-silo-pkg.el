@@ -1,2 +1,2 @@
-;; Generated package description from mode: lisp-data; .el  -*- denote-silono-byte-compile: t -*-
-(define-package "denote-silo" "0.1.0.0.20250415.141146" "Convenience functions for using Denote in multiple silos" '((emacs "28.1") (denote "3.1.0")) :commit "cd85764fcceb21fc11a163da0d36bf4b7f166f53" :authors '(("Protesilaos Stavrou" . "info@protesilaos.com")) :maintainer '("Protesilaos Stavrou" . "info@protesilaos.com") :url "https://github.com/protesilaos/denote-silo")
+;; Generated package description from denote-silo.el  -*- mode: lisp-data; no-byte-compile: t -*-
+(define-package "denote-silo" "0.1.1.0.20250419.74326" "Convenience functions for using Denote in multiple silos" '((emacs "28.1") (denote "4.0.0")) :commit "5617998a4c37aa61d37f8ab9607aeca35c7ae263" :authors '(("Protesilaos Stavrou" . "info@protesilaos.com")) :maintainer '("Protesilaos Stavrou" . "info@protesilaos.com") :url "https://github.com/protesilaos/denote-silo")
