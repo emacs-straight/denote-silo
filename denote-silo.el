@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/denote-silo
-;; Version: 0.1.1
+;; Version: 0.1.2
 ;; Package-Requires: ((emacs "28.1") (denote "4.0.0"))
 
 ;; This file is NOT part of GNU Emacs.
@@ -71,7 +71,7 @@ as the variable `denote-directory'."
     (completing-read
      (format-prompt "Select a silo" default)
      (denote--completion-table 'file denote-silo-directories)
-     nil :require-match nil 'denote-silo-directory-history)))
+     nil :require-match nil 'denote-silo-directory-history default)))
 
 (defun denote-silo-path-is-silo-p (path)
   "Return non-nil if PATH is among `denote-silo-directories'."
