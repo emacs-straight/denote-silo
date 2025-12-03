@@ -157,8 +157,8 @@ Table of Contents
      │    ;;;     (info "(emacs) Directory Variables")
      │ 
      │    ((nil . ((denote-directory . "/path/to/silo/")
-     │ 	    (denote-org-front-matter .
-     │ 	     "#+title:      %s
+     │             (denote-org-front-matter .
+     │              "#+title:      %s
      │ #+date:       %s
      │ #+filetags:   %s
      │ #+identifier: %s
@@ -175,9 +175,6 @@ Table of Contents
 
 3 Installation
 ══════════════
-
-
-
 
 3.1 GNU ELPA package
 ────────────────────
@@ -236,17 +233,17 @@ Table of Contents
   │   :ensure t
   │   ;; Bind these commands to key bindings of your choice.
   │   :commands ( denote-silo-create-note
-  │ 	      denote-silo-open-or-create
-  │ 	      denote-silo-select-silo-then-command
-  │ 	      denote-silo-dired
-  │ 	      denote-silo-cd )
+  │               denote-silo-open-or-create
+  │               denote-silo-select-silo-then-command
+  │               denote-silo-dired
+  │               denote-silo-cd )
   │   :config
   │   ;; Add your silos to this list.  By default, it only includes the
   │   ;; value of the variable `denote-directory'.
   │   (setq denote-silo-directories
-  │ 	(list denote-directory
-  │ 	      "~/Documents/personal/"
-  │ 	      "~/Documents/work/")))
+  │         (list denote-directory
+  │               "~/Documents/personal/"
+  │               "~/Documents/work/")))
   └────
 
 
