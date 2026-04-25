@@ -2,15 +2,14 @@
             DENOTE-SILO: CONVENIENCE FUNCTIONS TO WORK WITH
                          MULTIPLE DENOTE SILOS
 
-                          Protesilaos Stavrou
+                              Protesilaos
                           info@protesilaos.com
            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-This manual, written by Protesilaos Stavrou, describes the customization
-options for the Emacs package called `denote-silo' (or
-`denote-silo.el'), and provides every other piece of information
-pertinent to it.
+This manual, written by Protesilaos, describes the customization options
+for the Emacs package called `denote-silo' (or `denote-silo.el'), and
+provides every other piece of information pertinent to it.
 
 The documentation furnished herein corresponds to stable version 0.2.0,
 released on 2025-10-17.  Any reference to a newer feature which does not
@@ -254,7 +253,7 @@ Table of Contents
   matters.
 
   Author/maintainer
-        Protesilaos Stavrou.
+        Protesilaos.
 
   Ideas and/or user feedback
         Daniel Kahlenberg, Wilf-bog.
