@@ -5,7 +5,7 @@
 ;; Author: Protesilaos <info@protesilaos.com>
 ;; Maintainer: Protesilaos <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/denote-silo
-;; Version: 0.3.0
+;; Version: 0.3.2
 ;; Package-Requires: ((emacs "28.1") (denote "4.0.0"))
 
 ;; This file is NOT part of GNU Emacs.
@@ -45,13 +45,14 @@
   :link '(url-link :tag "Denote homepage" "https://protesilaos.com/emacs/denote")
   :link '(url-link :tag "Denote Silo homepage" "https://protesilaos.com/emacs/denote-silo"))
 
-(defcustom denote-silo-directories (list denote-directory)
+(defcustom denote-silo-directories (denote-directories)
   "List of file paths pointing to Denote silos.
-Each file path points to a directory, which takes the same value
-as the variable `denote-directory'."
+Each file path is a directory, which takes the same value as the
+variable `denote-directory'."
   :group 'denote-silo
   :link '(info-link "(denote) Maintain separate directories for notes")
-  :type '(repeat directory))
+  :type '(repeat directory)
+  :package-version '(denote-silo . "0.4.0"))
 
 (defvar denote-silo-directory-history nil
   "Minibuffer history for `denote-silo-directory-prompt'.")
@@ -76,74 +77,80 @@ as the variable `denote-directory'."
   "Return non-nil if PATH is among `denote-silo-directories'."
   (member path denote-silo-directories))
 
-(defmacro denote-silo-with-silo (silo &rest args)
-  "Run ARGS with SILO bound, if SILO satisfies `denote-silo-path-is-silo-p'."
+(defmacro denote-silo-with-silo (silo &rest body)
+  "Run BODY if SILO satisfies `denote-silo-path-is-silo-p'.
+`let' bind SILO to the variable `denote-directory'."
   (declare (indent defun))
   `(if (denote-silo-path-is-silo-p ,silo)
-       (progn
-         ,@args)
+       (let ((denote-directory ,silo))
+         ,@body)
      (user-error "`%s' is not among the `denote-silo-directories'" ,silo)))
 
 ;;;###autoload
 (defun denote-silo-create-note (silo)
   "Select SILO and run `denote' in it.
-SILO is a file path from `denote-silo-directories'.
+SILO is a file path from `denote-silo-directories'.  In interactive use,
+prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
 conforms with `denote-silo-path-is-silo-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
-    (let ((denote-directory silo))
-      (call-interactively #'denote))))
+    (call-interactively #'denote)))
 
 ;;;###autoload
 (defun denote-silo-open-or-create (silo)
   "Select SILO and run `denote-open-or-create' in it.
-SILO is a file path from `denote-silo-directories'.
+SILO is a file path from `denote-silo-directories'.  In interactive use,
+prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
 conforms with `denote-silo-path-is-silo-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
-    (let ((denote-directory silo))
-      (call-interactively #'denote-open-or-create))))
+    (call-interactively #'denote-open-or-create)))
 
 ;;;###autoload
 (defun denote-silo-select-silo-then-command (silo command)
   "Select SILO and run Denote COMMAND in it.
-SILO is a file path from `denote-silo-directories', while
-COMMAND is one among `denote-silo-commands'.
+SILO is a file path from `denote-silo-directories'.  COMMAND is one
+among `denote-commands-for-new-notes'.  In interactive use, prompt for
+SILO and COMMAND.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p'."
+conforms with `denote-silo-path-is-silo-p' and COMMAND is the symbol of
+a command that is passed to `call-interactively'."
   (interactive
    (list
     (denote-silo-directory-prompt)
     (denote-command-prompt)))
   (denote-silo-with-silo silo
-    (let ((denote-directory silo))
-      (call-interactively command))))
+    (call-interactively command)))
 
 ;;;###autoload
 (defun denote-silo-dired (silo)
   "Switch to SILO directory using `dired'.
-SILO is a file path from `denote-silo-directories'.
+SILO is a file path from `denote-silo-directories'.  In interactive use,
+prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
 conforms with `denote-silo-path-is-silo-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
+    (denote-directories--make-paths (list silo))
     (dired silo)))
 
 ;;;###autoload
 (defun denote-silo-cd (silo)
   "Switch to SILO directory using `cd'.
-SILO is a file path from `denote-silo-directories'.
+SILO is a file path from `denote-silo-directories'.  In interactive use,
+prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
 conforms with `denote-silo-path-is-silo-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
+    (denote-directories--make-paths (list silo))
     (cd silo)))
 
 (provide 'denote-silo)
