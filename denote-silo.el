@@ -73,16 +73,48 @@ variable `denote-directory'."
      (denote-get-completion-table denote-silo-directories '(category . file))
      nil :require-match nil 'denote-silo-directory-history default)))
 
-(defun denote-silo-path-is-silo-p (path)
+(defun denote-silo-path-is-known-p (path)
   "Return non-nil if PATH is among `denote-silo-directories'."
   (member path denote-silo-directories))
 
+(defun denote-silo--is-silo-p (directory)
+  "Return non-nil if DIRECTORY has local binding for variable `denote-directory'.
+Do so by reading the .dir-locals.el file in DIRECTORY."
+  (let* ((path (file-name-as-directory (expand-file-name directory)))
+         (dir-locals (expand-file-name ".dir-locals.el" path)))
+    (when (file-exists-p dir-locals)
+      (with-temp-buffer
+        (insert-file-contents dir-locals)
+        (and-let* ((content (read (current-buffer)))
+                    (_ (listp content))
+                    (all-modes-entry (assoc nil content))
+                    (denote-directory-entry (alist-get 'denote-directory all-modes-entry))
+                    (_ (stringp denote-directory-entry))
+                    (_ (file-equal-p (expand-file-name denote-directory-entry path) path))))))))
+
+(defun denote-silo-maybe-make (directory)
+  "Add local binding for DIRECTORY to the variable `denote-directory'.
+Create the .dir-local.el if necessary.  If DIRECTORY already has a
+binding for the variable `denote-directory' then do nothing."
+  (when-let* ((path (file-name-as-directory (expand-file-name directory)))
+              (dir-locals (expand-file-name ".dir-locals.el" path))
+              (default-directory directory))
+    (unless (denote-silo--is-silo-p path)
+      (save-window-excursion
+        (add-dir-local-variable nil 'denote-directory default-directory)
+        (when-let* ((buffer (get-file-buffer dir-locals)))
+          (save-buffer buffer)
+          (kill-buffer buffer)))
+      (message "Made `%s' a Denote silo by writing to `%s'" path dir-locals))))
+
 (defmacro denote-silo-with-silo (silo &rest body)
-  "Run BODY if SILO satisfies `denote-silo-path-is-silo-p'.
-`let' bind SILO to the variable `denote-directory'."
+  "Run BODY if SILO satisfies `denote-silo-path-is-known-p'.
+`let' bind SILO to the variable `denote-directory' and make SILO have a
+directory-local binding for that variable if necessary."
   (declare (indent defun))
-  `(if (denote-silo-path-is-silo-p ,silo)
+  `(if (denote-silo-path-is-known-p ,silo)
        (let ((denote-directory ,silo))
+         (denote-silo-maybe-make ,silo)
          ,@body)
      (user-error "`%s' is not among the `denote-silo-directories'" ,silo)))
 
@@ -93,7 +125,7 @@ SILO is a file path from `denote-silo-directories'.  In interactive use,
 prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p'."
+conforms with `denote-silo-path-is-known-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
     (call-interactively #'denote)))
@@ -105,7 +137,7 @@ SILO is a file path from `denote-silo-directories'.  In interactive use,
 prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p'."
+conforms with `denote-silo-path-is-known-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
     (call-interactively #'denote-open-or-create)))
@@ -118,7 +150,7 @@ among `denote-commands-for-new-notes'.  In interactive use, prompt for
 SILO and COMMAND.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p' and COMMAND is the symbol of
+conforms with `denote-silo-path-is-known-p' and COMMAND is the symbol of
 a command that is passed to `call-interactively'."
   (interactive
    (list
@@ -134,7 +166,7 @@ SILO is a file path from `denote-silo-directories'.  In interactive use,
 prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p'."
+conforms with `denote-silo-path-is-known-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
     (denote-directories--make-paths (list silo))
@@ -147,7 +179,7 @@ SILO is a file path from `denote-silo-directories'.  In interactive use,
 prompt for SILO.
 
 When called from Lisp, SILO is a file system path to a directory that
-conforms with `denote-silo-path-is-silo-p'."
+conforms with `denote-silo-path-is-known-p'."
   (interactive (list (denote-silo-directory-prompt)))
   (denote-silo-with-silo silo
     (denote-directories--make-paths (list silo))
